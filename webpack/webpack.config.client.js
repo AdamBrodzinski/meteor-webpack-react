@@ -24,11 +24,12 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel',
-        exclude: /node_modules|lib/,
+        exclude: [/node_modules/, path.join(__dirname, '../lib')],
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader',
+        exclude: /node_modules/,
       },
     ],
   },
