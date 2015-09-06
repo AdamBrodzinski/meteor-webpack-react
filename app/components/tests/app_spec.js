@@ -19,9 +19,10 @@ function renderComponent(comp, props) {
   );
 }
 
-function simulateClickOn(selector) {
-  var button = this.$el.find(selector)[0];
-  React.addons.TestUtils.Simulate.click(button);
+function simulateClickOn(rootComp, selector) {
+  const el = React.findDOMNode(rootComp);
+  const clickable = el.querySelector(selector);
+  Simulate.click(clickable);
 }
 
 
@@ -69,6 +70,7 @@ describe('Sample post component', () => {
   it("should hide when hide button is clicked", () => {
     let comp = renderComponent(Post, {});
     comp.handleHide();
+    //simulateClickOn(comp, 'button'); // or use the simulate
     expect(comp.state.isVisible).toEqual(false);
   });
 });
