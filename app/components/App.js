@@ -1,15 +1,14 @@
-import {AppPage} from './App.html';
+// using older require syntaxt allows us to grab just the tmpl
+var AppPage = require('./App.html').template;
 
 // test out RPC
 Meteor.call('sayHello', function(err, res) {
   console.log(res);
 });
 
-Template.App.helpers({
+AppPage.helpers({
   userCount: () => {
     return 100;
   },
-  postCount: () => {
-    return 2200;
-  },
+  postCount: () => 2200,
 });
