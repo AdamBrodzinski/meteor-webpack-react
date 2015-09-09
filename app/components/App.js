@@ -1,5 +1,6 @@
 // using older require syntaxt allows us to grab just the tmpl
 var AppPage = require('./App.html').template;
+import {Users, Posts} from '../collections';
 
 // test out RPC
 Meteor.call('sayHello', function(err, res) {
@@ -8,7 +9,7 @@ Meteor.call('sayHello', function(err, res) {
 
 AppPage.helpers({
   userCount: () => {
-    return 100;
+    return Users.find().fetch().length;
   },
-  postCount: () => 2200,
+  postCount: () => Posts.find().fetch().length,
 });
