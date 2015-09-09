@@ -5,7 +5,8 @@
 # but you can also edit it by hand.
 
 meteor-platform
+babel-runtime
 accounts-ui
 accounts-password
-react-meteor-data
-babel-runtime
+kadira:flow-router
+kadira:blaze-layout

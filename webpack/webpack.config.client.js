@@ -30,6 +30,11 @@ module.exports = {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
       },
+      {
+        test: /\.html$/,
+        loader: 'spacebars-loader',
+        exclude: /node_modules|lib/,
+      },
     ],
   },
   plugins: [
